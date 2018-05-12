@@ -78,6 +78,10 @@ _List of technologies needed:_
 ## Developers Only:
 
 #### Problem 10
+
+![System Design](./system_design.png)  
+Above is an illustration of the basic system design of the application. Once a user visits the index url, the page will redirect the user to a authentication page for the old users to enter passwords and account info and new users to register. The authentication page will then send the information entered to the backend server via RESTful APIs, the backend server will contact the database to verify if any fields should be updated and send a response with the content that the front-end should server with.
+
 | Name                     | Method | Requests Params                                                                             | Response                                                                                     | Description                                                                                                                                                        |
 |--------------------------|--------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /login                   | GET    | Empty                                                                                       | The desired login template file                                                              | Return a transpiled login page                                                                                                                                     |
@@ -88,8 +92,7 @@ _List of technologies needed:_
 | /view/circle             | POST   | User session token; Enable Geolocation: {true, false}; Enable Genetic Search: {true, false} | Friend circle of the user and chat history if user talked with someone before                | Use the user session token to find desired information                                                                                                             |
 
 
-![System Design](system_design.png])  
-Above is an illustration of the basic system design of the application. Once a user visits the index url, the page will redirect the user to a authentication page for the old users to enter passwords and account info and new users to register. The authentication page will then send the information entered to the backend server via RESTful APIs, the backend server will contact the database to verify if any fields should be updated and send a response with the content that the front-end should server with.
+
 > If the user is a streamer, the streamer should at least see an option to open his/her live channel, once the channel goes live, the frontend will contact the backend such that it can contact the database, get the subscribers of that channel and push notifications to subscribers of that channel.
 
 > If the user is a subscriber, the front end should send a request to the back end and the backend will decide what to render based on the kickoff question database. The user will then see a list of recommended channels in the view.
